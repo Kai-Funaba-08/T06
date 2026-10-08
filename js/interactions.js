@@ -3,7 +3,7 @@ const populateFilters = (data) => {
     // code for filters goes here
 
     // Step 7.3 Set up buttons and event listeners
-    d3.select("#filter_screen")
+    d3.select("#filters_screen")
         .selectAll(".filter")
         .data(filters_screen)
         .join("button")
@@ -17,12 +17,12 @@ const populateFilters = (data) => {
                 if(!d.isActive){
                     //make sure button clicked is not alredy active
                     filters_screen.forEach(filter => {
-                        filter.isActive = d.id === filter.id ? true:false;
+                        filter.isActive = d.id === filter.id ? true : false;
                     });
 
                     //update the filter buttons based o which one was clicked
-                    d3.selectAll("#filter_screen .filter")
-                        .classed("active", filter => filter.id === d.id ? true:false);
+                    d3.selectAll("#filters_screen .filter")
+                        .classed("active", filter => filter.id === d.id ? true : false);
 
                     updateHistogram(d.id, data);
                 }
@@ -33,12 +33,12 @@ const populateFilters = (data) => {
 const updateHistogram = (filterId, data) => {
     // Step 7.4 Update the histogram
     const updatedData = filterId === "all"
-        ?data
-        :data.filter(tv => tv.screenTech === filterId);
+        ? data
+        : data.filter(tv => tv.screenTech === filterId);
 
     const updatedBins = binGenerator(updatedData);
 
-    d3.select("#histogram rect")
+    d3.selectAll("#histogram rect")
         .data(updatedBins)
         .transition()
             .duration(500)
