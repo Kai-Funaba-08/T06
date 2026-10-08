@@ -32,7 +32,19 @@ const populateFilters = (data) => {
 
 const updateHistogram = (filterId, data) => {
     // Step 7.4 Update the histogram
+    const updatedData = filterId === "all"
+        ?data
+        :data.filter(tv => tv.screenTech === filterId);
 
+    const updatedBins = binGenerator(updatedData);
+
+    d3.select("#histogram rect")
+        .data(updatedBins)
+        .transition()
+            .duration(500)
+            .ease(d3.easeCubicInOut)
+            .attr("y", d => yScale(d.length))
+            .attr("height", d => innerHeight - yScale(d.length));
 };
 
 // T06-2 Step 3: Creating a tooltip and adding function call to load-data.js
