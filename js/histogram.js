@@ -75,7 +75,8 @@ const drawHistogram = (data) => {
         .append("text")
         .text("Frequency") // set the text of the label
         .attr("x", 30) // position the label at the left edge of the chart
-        
+        .attr("y", 20) 
+        .attr("class", "axis-label");   
 
     // Add the y-axis to the bottom of the chart relative to the inner chart
 };

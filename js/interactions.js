@@ -1,5 +1,7 @@
 // Build the screen-technology buttons and connect them to histogram filtering.
 const populateFilters = (data) => {
+    // code for filters goes here
+
     // Step 7.3 Set up buttons and event listeners
     
 };

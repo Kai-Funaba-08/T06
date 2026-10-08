@@ -15,8 +15,16 @@ const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
 
 // T06-1 Step 6.2 Create a bin generator using d3.bin
+const binGenerator = d3.bin()
+    .value(d => d.energyConsumption) // accessor for energyConsumption
 
 // T06-1 Step 7.2 Make the filter options accessible globally
+const filters_screen = [
+    {id: "all", label:"All", isActive: true},
+    {id: "LED", label:"LED", isActive: false},
+    {id: "LCD", label:"LCD", isActive: false}
+    {id: "OLED", label:"OLED", isActive: false},
+];
 
 // T06-2 Step 1.4 Set up shared constant
 
