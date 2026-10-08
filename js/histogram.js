@@ -3,7 +3,7 @@ const drawHistogram = (data) => {
     // standard (Dufour & Meeks)
     const svg = d3.select("#histogram")
         .append("svg")
-        .attrI("viewBox", `0 0 ${width} ${height}`) //responsive SVG
+        .attr("viewBox", `0 0 ${width} ${height}`) //responsive SVG
         
     // Create an inner chart group with margins
     const innerChart = svg.append("g")
