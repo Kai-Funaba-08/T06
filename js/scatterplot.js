@@ -43,10 +43,31 @@ const drawScatterplot = (data) => {
         .attr("r", 4)
         .attr("fill", d => colorScale(d.screenTech))
         .attr("opacity", 0.5);
-        
+
     // T06-2 Step 2.6 Add bottom and left axis
     /// Add axes
+    const bottomAxis = d3.axisBottom(xScaleS);
+    innerChartS.append("g")
+        .attr("transform", `translate(0,${innerHeight})`)
+        .call(bottomAxis);
+    
+    svg.append("text")
+        .text("Star Rating")
+        .attr("text-anchor", "end")
+        .attr("x", width - 20)
+        .attr("y", height - 5)
+        .attr("class", "axis-label");
 
+    const leftAxis = d3.axisLeft(yScaleS);
+    innerChartS.append("g")
+        .call(leftAxis);
+
+    svg.append("text")
+        .text("Screen Size (inches)")
+        .attr("x", 30)
+        .attr("y", 20)
+        .attr("class", "axis-label");
+        
     // T06-2 Step 2.7 Add legend
     /// Add a legend on the right-hand side
 
