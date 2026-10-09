@@ -63,13 +63,13 @@ const createTooltip = () => {
         .attr("ry", 3)
         .attr("fill", barColor)
         .attr("fill-opacity", 0.75);
-        
+
     // Step 3.4 Apped tooltip text
     tooltip
     .append("text")
         .text("NA")
         .attr("x", tooltipWidth / 2)
-        .attr("y", tooltipHeight + 2)
+        .attr("y", tooltipHeight / 2 + 2)
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "middle")
         .attr("fill", "white")
@@ -81,8 +81,9 @@ const handleMouseEvents = () => {
     const tooltip = innerChartS.select(".tooltip");
 
     // Step 3.6 Select all circles in scatter plot
-    // Step 3.7 Attach event listeners to mouseenter and mouseleave events
     innerChartS.selectAll("circle")
+    
+    // Step 3.7 Attach event listeners to mouseenter and mouseleave events
         .on("mouseenter", (e, d) => {
             tooltip.select("text")
                 .text(`${d.screenSize} inches`);
@@ -97,7 +98,7 @@ const handleMouseEvents = () => {
                 .attr(
                     "transform",
                     `translate(${cx - 0.5 * tooltipWidth},
-                               ${cy - 1.5 * tooltipHeight})`
+                                ${cy - 1.5 * tooltipHeight})`
                 )
                 .transition()
                 .duration(200)
