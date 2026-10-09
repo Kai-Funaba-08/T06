@@ -63,8 +63,17 @@ const createTooltip = () => {
         .attr("ry", 3)
         .attr("fill", barColor)
         .attr("fill-opacity", 0.75);
+        
     // Step 3.4 Apped tooltip text
-
+    tooltip
+    .append("text")
+        .text("NA")
+        .attr("x", tooltipWidth / 2)
+        .attr("y", tooltipHeight + 2)
+        .attr("text-anchor", "middle")
+        .attr("alignment-baseline", "middle")
+        .attr("fill", "white")
+        .style("font-weight", 900);
 };
 
 // T06-2 Step 3.5 Add functions to react to mouse events
