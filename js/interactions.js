@@ -50,7 +50,10 @@ const updateHistogram = (filterId, data) => {
 // T06-2 Step 3: Creating a tooltip and adding function call to load-data.js
 const createTooltip = () => {
     // Step 3.2 Append (a hidden) tooltip to innerChart
-
+    const tooltip = innerChartS
+        .append("g")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
     // Step 3.3 Append tooltip background rectangle
 
     // Step 3.4 Apped tooltip text
