@@ -55,7 +55,14 @@ const createTooltip = () => {
         .attr("class", "tooltip")
         .style("opacity", 0);
     // Step 3.3 Append tooltip background rectangle
-
+    tooltip
+    .append("rect")
+        .attr("width", tooltipWidth)
+        .attr("height", tooltipHeight)
+        .attr("rx", 3)
+        .attr("ry", 3)
+        .attr("fill", barColor)
+        .attr("fill-opacity", 0.75);
     // Step 3.4 Apped tooltip text
 
 };
