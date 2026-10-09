@@ -13,6 +13,10 @@ const bodyBackgroundColor = "#fffaf0";
 // Set up the scales
 const xScale = d3.scaleLinear();
 const yScale = d3.scaleLinear();
+// T06-2: 1.4
+const xScaleS = d3.scaleLinear();
+const yScaleS = d3.scaleLinear();
+const colorScale = d3.scaleOrdinal();
 
 // T06-1 Step 6.2 Create a bin generator using d3.bin
 const binGenerator = d3.bin()
@@ -27,5 +31,9 @@ const filters_screen = [
 ];
 
 // T06-2 Step 1.4 Set up shared constant
+let innerChartS;
+
+const tooltipWidth = 65;
+const tooltipHeight = 32;
 
 // T06-2 Step 3.3 Add tooltipWidth and tooltipHeight
