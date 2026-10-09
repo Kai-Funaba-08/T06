@@ -67,10 +67,25 @@ const drawScatterplot = (data) => {
         .attr("x", 30)
         .attr("y", 20)
         .attr("class", "axis-label");
-        
+
     // T06-2 Step 2.7 Add legend
     /// Add a legend on the right-hand side
+    const legend = svg.append("g")
+        .attr('class', 'legend')
+        .attr("transform", `translate(${width -140}, ${margin.top})`);
 
+    uniqueTechs.forEach((tech, i) => {
+        const g = legend.append("g").attr("transform", `translate(0, ${i * 22})`);
+        g.append("rect")
+            .attr("width", 12)
+            .attr("height", 12)
+            .attr("fill", colorScale(tech));
+        g.append("text")
+            .attr("x", 18)
+            .attr("y", 10)
+            .text(tech)
+            .attr('class', 'axis-label');
+    });
     // Show each screen technology with its matching point colour.
 
 };
