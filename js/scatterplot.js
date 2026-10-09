@@ -35,7 +35,15 @@ const drawScatterplot = (data) => {
         .range(d3.schemeCategory10);
     
     // T06-2 Step 2.5 Draw the circles
-
+    innerChartS.selectAll("circle")
+        .data(data)
+        .join("circle")
+        .attr("cx", d => xScaleS(d.star))
+        .attr("cy", d => yScaleS(d.screenSize))
+        .attr("r", 4)
+        .attr("fill", d => colorScale(d.screenTech))
+        .attr("opacity", 0.5);
+        
     // T06-2 Step 2.6 Add bottom and left axis
     /// Add axes
 
